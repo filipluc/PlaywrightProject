@@ -1,0 +1,17 @@
+
+# Dependencies
+node_modules/
+
+# Environment variables — never commit real credentials
+.env
+
+# Playwright output
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+/playwright/.auth/
+
+# OS files
+.DS_Store
+Thumbs.db
