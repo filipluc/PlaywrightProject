@@ -28,6 +28,9 @@ using https://automationexercise.com/ as the practice test site.
 - Do not skip steps or rush ahead
 - After completing a step, update this file and ask if the learner is ready for the next
 
+**Claude workflow rules:**
+- Whenever CLAUDE.md is updated, immediately commit and push it to GitHub
+
 ---
 
 ## Tech Stack & Tooling
