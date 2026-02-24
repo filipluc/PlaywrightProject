@@ -124,9 +124,9 @@ PlaywrightProject/
 ---
 
 ## Current Status
-**Phase: 1 — Project Setup — COMPLETE**
-**Last completed step: Folder structure, tsconfig.json, .env, .gitignore all set up**
-**Next step: Phase 2 — Create BasePage.ts**
+**Phase: 2 — UI Testing Foundation (in progress)**
+**Last completed step: BasePage, LoginPage, HomePage, RegisterPage created**
+**Next step: ProductsPage.ts**
 
 ---
 
@@ -139,10 +139,10 @@ PlaywrightProject/
 - [x] Set up `.gitignore`, `.env`, `.env.example`, and `tsconfig.json`
 
 ### Phase 2: UI Testing Foundation
-- [ ] Create `BasePage.ts` with shared page methods
-- [ ] Create `LoginPage.ts` POM
-- [ ] Create `RegisterPage.ts` POM
-- [ ] Create `HomePage.ts` POM
+- [x] Create `BasePage.ts` with shared page methods
+- [x] Create `LoginPage.ts` POM
+- [x] Create `RegisterPage.ts` POM
+- [x] Create `HomePage.ts` POM
 - [ ] Create `ProductsPage.ts` POM
 - [ ] Create `CartPage.ts` POM
 - [ ] Create `CheckoutPage.ts` POM
@@ -219,4 +219,13 @@ npx playwright codegen https://automationexercise.com
 ---
 
 ## Notes / Things Learned
-_(Claude will update this section as concepts are explained and practiced)_
+- `async/await` is required for every Playwright method that touches the browser
+- `Promise<void>` = function finishes but returns nothing; `Promise<string>` = returns a string
+- Sync functions are used for pure JavaScript logic (no browser interaction)
+- Locator priority: `getByRole()` → `data-qa` attributes → `getByText()` → CSS → XPath (last resort)
+- `data-qa` attributes are added by devs specifically for testing — most stable selectors
+- TypeScript interfaces define the shape of objects and catch missing fields at compile time
+- Optional interface fields use `?` — e.g. `company?: string`
+- `selectOption()` for dropdowns, `check()` for checkboxes/radio buttons
+- `.gitignore` prevents sensitive files (.env) and large folders (node_modules) from being committed
+- `tsconfig.json` configures the TypeScript compiler — `strict: true` catches more mistakes early
