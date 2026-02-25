@@ -128,8 +128,24 @@ PlaywrightProject/
 
 ## Current Status
 **Phase: 2 — UI Testing Foundation (in progress)**
-**Last completed step: BasePage, LoginPage, HomePage, RegisterPage created**
-**Next step: ProductsPage.ts**
+**Last completed step: ProductsPage.ts — in progress (3 of 5 methods written)**
+**Next step: Complete remaining ProductsPage.ts methods — `isSearchResultsVisible()` and `clickViewProduct()`**
+
+### ProductsPage.ts — Current State
+Locators defined:
+- `searchInput` — `#search_product`
+- `searchButton` — `#submit_search`
+- `productCards` — `.productinfo`
+- `searchResultsSection` — `#search_product_results`
+
+Methods written so far:
+- `goto()` — navigates to `/products`
+- `searchProduct(name: string)` — fills search input and clicks search button
+- `getProductNames()` — returns all product names as `string[]` using `.all()` loop
+
+Methods still to write:
+- `isSearchResultsVisible()` — returns `boolean`, checks if results section is visible
+- `clickViewProduct(index: number)` — clicks "View Product" on the nth card
 
 ---
 
@@ -146,7 +162,7 @@ PlaywrightProject/
 - [x] Create `LoginPage.ts` POM
 - [x] Create `RegisterPage.ts` POM
 - [x] Create `HomePage.ts` POM
-- [ ] Create `ProductsPage.ts` POM
+- [ ] Create `ProductsPage.ts` POM _(in progress)_
 - [ ] Create `CartPage.ts` POM
 - [ ] Create `CheckoutPage.ts` POM
 - [ ] Write UI test: User registration
@@ -232,3 +248,9 @@ npx playwright codegen https://automationexercise.com
 - `selectOption()` for dropdowns, `check()` for checkboxes/radio buttons
 - `.gitignore` prevents sensitive files (.env) and large folders (node_modules) from being committed
 - `tsconfig.json` configures the TypeScript compiler — `strict: true` catches more mistakes early
+- `#id` = CSS ID selector, `.class` = CSS class selector, `tag` = HTML tag selector
+- `locator()` always returns a single `Locator` object — the difference between one/many shows up when calling `.all()`
+- `.all()` returns an array of `Locator` objects — use a `for...of` loop with `await` inside to read each element
+- Each `.innerText()` call inside a loop needs its own `await` — each one is a separate browser interaction
+- Every page gets its own `goto()` method — tests should be able to jump directly to any page without going through home
+- `private readonly` on locators: `private` = only usable inside the class, `readonly` = never reassigned
